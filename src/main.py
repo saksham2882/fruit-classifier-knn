@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings("ignore")   
 
 # --- Streamlit Config ---
-st.set_page_config(page_title="Fruit Classifier AI", page_icon="🍎", layout="centered")
+st.set_page_config(page_title="FruitVision – KNN-based Fruit Classifier", page_icon="🍎", layout="centered")
 
 
 # --- Constants ---
@@ -118,7 +118,7 @@ model, scaler, train_acc, dataset = load_or_train_model()
 
 
 # --- UI Layout ---
-st.title("🍎 Fruit Classifier AI")
+st.title("🍎 FruitVision – KNN-based Fruit Classifier")
 st.write("""
 This Machine Learning model estimates the type of fruit based on its physical properties. It uses the **K-Nearest Neighbors (KNN)** algorithm and is trained on the **Fruits with Colors Dataset**.
 """)
