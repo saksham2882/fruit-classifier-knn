@@ -87,6 +87,7 @@ project_2/
 └── README.md
 ```
 
+---
 
 ## 📊 Dataset
 **Source**: [Fruits with Colors Dataset](https://www.kaggle.com/datasets/mjamilmoughal/fruits-with-colors-dataset)
@@ -99,6 +100,7 @@ project_2/
 | `color_score` | 0.0 - 1.0 | A numerical score representing color spectrum. |
 | **Target** | Label | The specific fruit name (`apple`, `mandarin`, `orange`, `lemon`). |
 
+---
 
 ## 🛠 Libraries Used
 
@@ -110,6 +112,7 @@ project_2/
 | **streamlit** | Web App - Turns the Python script into the UI you see in the browser. |
 | **joblib** | Memory - Saves the trained model to disk so we don't allow "amnesia". |
 
+---
 
 ## ▶️ How to Run Locally
 
@@ -126,6 +129,7 @@ project_2/
 3.  **Open in Browser**:
     Go to `http://localhost:8501`.
 
+---
 
 ## ☁️ How to Deploy (Streamlit Cloud)
 
@@ -135,29 +139,31 @@ project_2/
 4.  **Configuration**: Set Main file path to `src/main.py`.
 5.  **Deploy**: Click "Deploy" to launch!
 
+---
 
 ##  What I Learned
 - **Input Scaling**: Learned that K-Nearest Neighbors counts "Distance" mathematically. If one number is big (100) and one is small (1), the big number dominates. Scaling fixes this.
 - **Model Persistence**: Keeping the `scaler.pkl` is just as important as the model. If we scale the training data but forget to scale the user's input, the prediction will be junk.
 - **User Experience**: A good UI with tooltips and clear units (g, cm) prevents user errors.
 
+---
 
 ## 📚 Detailed Concepts
 
 ### 🧠 How It Works (The Core Concepts)
 
 #### 1. How the Model Works (KNN)
-**K-Nearest Neighbors (KNN)** is one of the simplest and most intuitive ML algorithms.
-*   **Analogy**: You move to a new town. To decide if a restaurant is good, you ask 5 neighbors. If 4 say "Good", you assume it's good.
-*   **In this App**: The model looks at the 5 fruits in the database that are most similar (closest in size/color) to your input. The majority vote wins.
+- **K-Nearest Neighbors (KNN)** is one of the simplest and most intuitive ML algorithms.
+- **Analogy**: You move to a new town. To decide if a restaurant is good, you ask 5 neighbors. If 4 say "Good", you assume it's good.
+- **In this App**: The model looks at the 5 fruits in the database that are most similar (closest in size/color) to your input. The majority vote wins.
 
 #### 2. How Training Works (`fit`)
-*   **Training** in KNN is lazy! It doesn't actually "learn" a complex formula.
-*   It simply memorizes the training data like a phone book.
-*   `model.fit()` basically says: "Okay, I have stored these 50 examples in my RAM."
+- **Training** in KNN is lazy! It doesn't actually "learn" a complex formula.
+- It simply memorizes the training data like a phone book.
+- `model.fit()` basically says: "Okay, I have stored these 50 examples in my RAM."
 
 #### 3. How Prediction Works (`predict`)
-*   When you click "Identify Fruit":
+- When you click "Identify Fruit":
     1.  **Input**: User enters `Mass=150`, `Width=7.5`.
     2.  **Scale**: We convert this to `Mass=0.5`, `Width=0.6` (relative to max values).
     3.  **Distance**: The model uses the **Euclidean Distance Formula**: $\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$ to find the distance between your fruit and every fruit in memory.
@@ -177,12 +183,14 @@ project_2/
     *   **Black Star**: YOUR input.
     *   **Goal**: If your star lands inside a cluster of similar points, the prediction is likely correct.
 
+---
 
 ## 🚀 Future Improvements
 - **Add More Fruits**: Train the model on a larger dataset with bananas, grapes, etc.
 - **Real-time Prediction**: Allow users to upload an image of a fruit for classification (using OpenCV).
 - **3D Visualization**: Upgrade the 2D scatter plot to a 3D interactive graph.
 
+---
 
 ## 🔗Contact Me
 
